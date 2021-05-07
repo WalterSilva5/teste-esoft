@@ -1,0 +1,22 @@
+{% extends "main_deslogado.html" %} {% load static %} {% block content %}
+<div class="row d-flex justify-content-center">
+    <div id="login" class="container col-4 border border-secondary mt-4 rounded hvr-grow shadow-lg p-3 bg-info" style="min-height: 400px;">
+        <form method="post">
+            <div class="text-center">
+                <h2 class="h2 text-dark font-weight-bold">LOGIN</h2>
+                <input class="form-control font-weight-bold mt-2" type="email" placeholder="E-MAIL" autofocus required>
+                <input class="form-control font-weight-bold mt-2" type="password" placeholder="SENHA" required>
+                <button class="btn btn-secondary btn-lg mt-3">FAZER LOGIN</button>
+            </div>
+            <div class="container mt-5 col-8">
+                Ainda não tem conta?
+                <a href="{% url 'cadastrar' %}" class="btn btn-danger">CADASTRE-SE</a>
+            </div>
+            <div id="msg">
+                <p>{{mensagem}}</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

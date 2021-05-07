@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}" />
+    <link rel="stylesheet" href="{% static 'app/css/animate.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'app/css/hover-min.css'%}" />
+    <!-- scripts -->
+    <script src="{% static 'app/js/jquery.js'%}"></script>
+    <script src="{% static 'app/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'app/js/vue.js'%}"></script>
+    <title>TESTE E-SOFT</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color: black">
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <div id="options" class="mx-auto">
+                    <ul class="navbar-nav mr-auto ">
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold text-light hvr-ripple-in " href="/">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold text-light hvr-ripple-in" href="{% url 'login' %}">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-weight-bold text-light hvr-ripple-in" href="{% url 'cadastrar' %}">CADASTRAR</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- end navbar -->
+    <!-- website body -->
+    <div id="website-body" style="min-height: 450px;">
+        {% block content %} {% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <h3 class="d-block mb-3 text-muted">WALTER PEREIRA DA SILVA LIRA, <strong id="ano"></strong>.</h3>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+    <!-- end website body -->
+    <script src="{% static 'app/js/main.js' %}"></script>
+
+</body>
+
+</html>
