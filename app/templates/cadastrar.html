@@ -2,47 +2,51 @@
 <div class="row d-flex justify-content-center">
     <div id="cadastro" class="container col-6 border border-secondary mt-4 rounded hvr-grow shadow-lg p-3 bg-info"
         style="min-height: 400px;">
-        <form autocomplete="off" " method=" post ">
+        <form autocomplete="off" " method="post" action="{% url 'efetuar_cadastro' %}">
+            {% csrf_token %}
             <div class=" text-center ">
                 <h2 class=" h2 text-dark font-weight-bold ">CADASTRE-SE</h2>
-                <input name="nome" class=" form-control font-weight-bold mt-2 text-center "  type="
+                <input name="nome" class=" form-control font-weight-bold mt-2 text-center " type="
             text " placeholder=" NOME " autofocus required>
-                <input  name="email" class=" form-control font-weight-bold mt-2 text-center " type="
-            email " placeholder=" E-MAIL " required>
+                <input name="email" class=" form-control font-weight-bold mt-2 text-center " type="email"
+                    placeholder=" E-MAIL " required>
                 <div class=" d-flex justify-content-center ">
-                    <input name="senha" class=" form-control font-weight-bold mt-2 text-center col-6 " type="
-            password " placeholder=" SENHA " required>
+                    <input name="senha" class=" form-control font-weight-bold mt-2 text-center col-6 " type="password"
+                        placeholder=" SENHA " required>
                 </div>
                 <div class=" d-flex justify-content-center ">
-                    <input name="repetir_senha" class=" form-control font-weight-bold mt-2 text-center col-6 "  type="
-            password " placeholder=" REPETIR SENHA " required>
+                    <input name="repetir_senha" class=" form-control font-weight-bold mt-2 text-center col-6 "
+                        type="password" placeholder=" REPETIR SENHA " required>
                 </div>
-                <p id="senhas_diferentes" class="text-danger font-weight-bold bg-warning rounded d-none" >SENHAS NÃO CORRESPONDEM!</p>
-        
+                <p id="senhas_diferentes" class="text-danger font-weight-bold bg-warning rounded d-none">SENHAS NÃO
+                    CORRESPONDEM!</p>
+
                 <div class=" container ">
-            <input name="cep2" class=" form-control font-weight-bold mt-2 text-center col-3 float-left" type=" text "
-            placeholder=" CEP " required>
-            <input name="logradouro" class=" form-control font-weight-bold mt-2 text-center col-9 float-left "
-                type=" text " placeholder=" ENDEREÇO " required>
-            <input name="numero" class=" form-control font-weight-bold mt-2 text-center col-4 float-left " type=" text "
-                placeholder=" NUMERO " required>
+                    <input name="cep2" class=" form-control font-weight-bold mt-2 text-center col-3 float-left"
+                        type=" text " placeholder=" CEP " required>
+                    <input name="logradouro" class=" form-control font-weight-bold mt-2 text-center col-9 float-left "
+                        type=" text " placeholder=" ENDEREÇO " required>
+                    <input name="numero" class=" form-control font-weight-bold mt-2 text-center col-4 float-left "
+                        type=" text " placeholder=" NUMERO " required>
 
-            <input name="bairro" class=" form-control font-weight-bold mt-2 text-center col-8 float-left " type=" text "
-                placeholder=" BAIRRO " required>
+                    <input name="bairro" class=" form-control font-weight-bold mt-2 text-center col-8 float-left "
+                        type=" text " placeholder=" BAIRRO " required>
 
-            <input name="localidade" class=" form-control font-weight-bold mt-2 text-center col-8 float-left " type=" text "
-                placeholder=" CIDADE " required>
+                    <input name="localidade" class=" form-control font-weight-bold mt-2 text-center col-8 float-left "
+                        type=" text " placeholder=" CIDADE " required>
 
-            <input name="uf" class=" form-control font-weight-bold mt-2 text-center col-4 float-left " 
-                type=" text " placeholder=" ESTADO " required>
+                    <input name="uf" class=" form-control font-weight-bold mt-2 text-center col-4 float-left "
+                        type=" text " placeholder=" ESTADO " required>
+                </div>
+                <br>
+                <input type="submit" class=" btn btn-dark btn-lg mt-3 " name="btn_submit" value="CADASTRAR">
+                <div id=" msg ">
+                    {% autoescape off %}
+                    {{ mensagem }}
+                    {% endautoescape %}
+                </div>
+        </form>
     </div>
-    <br>
-    <input type="submit" class=" btn btn-dark btn-lg mt-3 " name="btn_submit" value="CADASTRAR">
-    <div id=" msg ">
-        <p>{{mensagem}}</p>
-    </div>
-    </form>
-</div>
 </div>
 
 <script src=" {% static 'app/js/cadastrar.js' %} "></script>

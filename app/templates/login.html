@@ -1,19 +1,20 @@
 {% extends "main_deslogado.html" %} {% load static %} {% block content %}
 <div class="row d-flex justify-content-center">
     <div id="login" class="container col-4 border border-secondary mt-4 rounded hvr-grow shadow-lg p-3 bg-info" style="min-height: 400px;">
-        <form method="post">
+        <form method="post" action="{% url 'efetuar_login' %}">
+            {% csrf_token %}
             <div class="text-center">
                 <h2 class="h2 text-dark font-weight-bold">LOGIN</h2>
-                <input class="form-control font-weight-bold mt-2" type="email" placeholder="E-MAIL" autofocus required>
-                <input class="form-control font-weight-bold mt-2" type="password" placeholder="SENHA" required>
-                <button class="btn btn-secondary btn-lg mt-3">FAZER LOGIN</button>
+                <input name="email" class="form-control font-weight-bold mt-2 text-center" type="email" placeholder="E-MAIL" autofocus required>
+                <input name="senha" class="form-control font-weight-bold mt-2 text-center" type="password" placeholder="SENHA" required>
+                <button class="btn btn-dark btn-lg mt-3">EFETUAR LOGIN</button>
             </div>
             <div class="container mt-5 col-8">
                 Ainda não tem conta?
-                <a href="{% url 'cadastrar' %}" class="btn btn-danger">CADASTRE-SE</a>
+                <a href="{% url 'cadastrar' %}" class="btn btn-danger font-weight-bold">CADASTRE-SE</a>
             </div>
-            <div id="msg">
-                <p>{{mensagem}}</p>
+            <div id="msg" class="mt-3 rounded bg-danger">
+                <h4 class="font-weight-bold text-center">{{mensagem}}</h4>
             </div>
         </form>
     </div>

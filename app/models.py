@@ -4,6 +4,15 @@ from django.db import models
 #$ python manage.py sqlmigrate polls 0001
 
 class Usuario(models.Model):
-    login = models.CharField(max_length=200)
+    nome = models.CharField("nome",max_length=200, null=False)
+    email = models.CharField("email",max_length=250, null=False, unique=True)
+    senha = models.CharField("senha",max_length=250, null=False)
+    cep = models.CharField("cep",max_length=250, null=False)
+    endereco = models.CharField("endereco",max_length=250, null=False)
+    numero = models.CharField("numero",max_length=250, null=False)
+    bairro = models.CharField("bairro",max_length=250, null=False)
+    cidade = models.CharField("cidade",max_length=250, null=False)
+    estado = models.CharField("estado",max_length=250, null=False)
+    
     
 # Create your models here.
