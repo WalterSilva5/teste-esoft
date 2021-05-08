@@ -4,14 +4,63 @@
 
 <div id="opções_home" class="justify-content-center text-center col-1 float-left pr-4">
     <div class=" col-12 float-left">
-        <div class="btn btn-lg btn-dark rounded text-light row mt-3" style="width:120px;">
+        <div class="btn btn-lg btn-dark rounded text-light row mt-3" style="width:120px;" data-toggle="modal"
+            data-target="#modal-adicionar-produto">
             <h6>CADASTRAR</h6>
         </div>
         <br>
     </div>
 </div>
-<div id="dashboard_home" class="col-10 border border-secondary float-left rounded ml-4" style="min-height:400px;">
-
+<div id=" tabela_produtos" class="col-10 border border-secondary float-left rounded ml-4" style="min-height:400px;">
 </div>
-<script src="{% static 'app/js/index.js' %}"></script>
+<!-- modal adicionar produto -->
+<div class="modal fade" id="modal-adicionar-produto" tabindex="-1" role="dialog"
+    aria-labelledby="modal-adicionar-produto" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">CADASTRAR PRODUTO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body bg-info">
+                <!-- form adicionar produto -->
+                <form class="font-weight-bold">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nome">NOME DO PRODUTO</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required
+                            placeholder="NOME DO PRODUTO">
+                    </div>
+                    <div class="form-group">
+                        <label for="estoque">ESTOQUE</label>
+                        <input type="text" class="form-control" id="estoque" name="estoque" required
+                            placeholder="QUANTIDADE NO ESTOQUE" autofocus>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="preco">PREÇO</label>
+                            <input type="text" class="form-control" id="preco" name="preco" placeholder="R$: 00.00">
+                        </div>
+                    </div>
+                </form>
+                <div id="produto_cadastro_efetuado" class="alert alert-success col-12 d-none" role="alert">
+                    <h3>PRODUTO CADASTRADO COM SUCESSO</h3>
+                </div>
+                <div id="produto_cadastro_nao_efetuado" class="alert alert-danger col-12 d-none" role="alert">
+                    <h3>PRODUTO JA ESTA CADASTRADO</h3>
+                </div>
+                <button class="btn btn-dark btn-lg font-weight-bold" onclick="cadastrar_produto()">CADASTRAR</button>
+                <button type="button" class="btn btn-danger btn-lg float-right font-weight-bold text-dark"
+                    data-dismiss="modal" aria-label="Close">
+                    CANCELAR
+                </button>
+                <!-- fim form adicionar produto -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fim modal adicionar produto -->
+<script src="{% static 'app/js/produtos.js' %}"></script>
 {% endblock content %}

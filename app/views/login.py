@@ -7,8 +7,8 @@ def login(request):
     return render(request, 'login.html')
 
 def efetuar_login(request):
-    email = request.POST["email"]
-    senha = request.POST["senha"]
+    email = request.POST["email"].upper()
+    senha = request.POST["senha"].upper()
     
     verifica = usuario_test.verificar_usuario(email, senha)
     

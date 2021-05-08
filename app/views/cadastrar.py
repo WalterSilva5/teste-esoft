@@ -12,15 +12,15 @@ def efetuar_cadastro(request):
     if not usuario_test.verificar_usuario(request.POST["email"], "") =="email":
         return render(request, "cadastrar.html", {"mensagem": '<h2 class="mt-4 bg-warning text-danger font-weight-bold rounded">ERRO: USUARIO JA ESTA CADASTRADO!</h2>'})
     else:
-        nome = request.POST["nome"]
-        email = request.POST["email"]
+        nome = request.POST["nome"].upper()
+        email = request.POST["email"].upper()
         senha = request.POST["senha"]
         cep = request.POST["cep2"]
-        endereco = request.POST["logradouro"]
-        numero = request.POST["numero"]
-        bairro = request.POST["bairro"]
-        cidade = request.POST["localidade"]
-        estado = request.POST["uf"]
+        endereco = request.POST["logradouro"].upper()
+        numero = request.POST["numero"].upper()
+        bairro = request.POST["bairro"].upper()
+        cidade = request.POST["localidade"].upper()
+        estado = request.POST["uf"].upper()
         
         usuario = Usuario(nome=nome, email=email, senha=senha, cep=cep, endereco=endereco, numero=numero, bairro=bairro, cidade=cidade, estado=estado)
         usuario.save()

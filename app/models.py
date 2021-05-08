@@ -13,6 +13,7 @@ class Usuario(models.Model):
     bairro = models.CharField("bairro",max_length=250, null=False)
     cidade = models.CharField("cidade",max_length=250, null=False)
     estado = models.CharField("estado",max_length=250, null=False)
-    
-    
-# Create your models here.
+class Produto(models.Model):
+    nome = models.CharField("nome",max_length=250, null=False, unique=True)
+    estoque = models.DecimalField("estoque", blank=True, null=False, max_digits=20,  decimal_places=10)
+    preco = models.DecimalField("preco", blank=True, null=False, max_digits=20,  decimal_places=10)
