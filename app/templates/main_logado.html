@@ -15,11 +15,8 @@
     <script src="{% static 'app/js/jquery.js'%}"></script>
     <script src="{% static 'app/js/bootstrap.min.js'%}"></script>
     <script src="{% static 'app/js/vue.js'%}"></script>
-    <script src="{% static 'app/js/main.js' %}"></script>
     <title>TESTE E-SOFT</title>
 </head>
-
-<body>
     <!-- navbar -->
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark text-light" style="background-color: black">
@@ -28,13 +25,16 @@
                 <div id="options" class="mx-auto">
                     <ul class="navbar-nav mr-auto ">
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold text-light hhvr-ripple-in " href="{% url 'home' %}">HOME</a>
+                            <a class="nav-link font-weight-bold text-light hhvr-ripple-in "
+                                href="{% url 'home' %}">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold text-light hhvr-ripple-in" href="{% url 'produtos' %}">PRODUTOS</a>
+                            <a class="nav-link font-weight-bold text-light hhvr-ripple-in"
+                                href="{% url 'produtos' %}">PRODUTOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link font-weight-bold text-light hhvr-ripple-in" href="{% url 'sair' %}">SAIR</a>
+                            <a class="nav-link font-weight-bold text-light hhvr-ripple-in"
+                                href="{% url 'sair' %}">SAIR</a>
                         </li>
                     </ul>
                 </div>
@@ -47,18 +47,16 @@
     <div id="website-body" style="min-height: 450px;">
         {% block content %} {% endblock %}
     </div>
-
     <!-- FOOTER -->
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md">
-                <h3 class="d-block mb-3 text-muted">WALTER PEREIRA DA SILVA LIRA, <strong id="ano"></strong>.</h3>
-            </div>
+
+    <footer class="my-md-2 pt-md-2 border-top container">
+        <div class="row col-6 container">
+            <h3 class="d-block mb-3 text-muted">WALTER PEREIRA DA SILVA LIRA, <strong id="ano"></strong>.</h3>
         </div>
     </footer>
     <!-- END FOOTER -->
     <!-- end website body -->
-
-</body>
+    <script src="{% static 'app/js/main.js' %}"></script>
+    </body>
 
 </html>

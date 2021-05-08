@@ -15,19 +15,24 @@ function cadastrar_produto() {
       if (result == "OK") {
         sucesso();
       } else if (result == "PRODUTO_JA_CADASTRADO") {
-        mensagem = "PRODUTO JA ESTA CADASTRADO";
+        erro("PRODUTO JA ESTA CADASTRADO");
       } else if (result == "ERRO_DESCONHECIDO") {
-        mensagem = result;
-      }else if(result == "ESTOQUE_NEGATIVO"){
-        mensagem = "ESTOQUE NÃO PODE SER NEGATIVO!"
-      }else if(result == "PRECO_NEGATIVO"){
-        mensagem = "PREÇO NÃO PODE SER NEGATIVO!"
-      }else {
+        errro(result);
+      } else if (result == "ESTOQUE_NEGATIVO") {
+        erro("ESTOQUE NÃO PODE SER NEGATIVO!");
+      } else if (result == "PRECO_NEGATIVO") {
+        erro("PREÇO NÃO PODE SER NEGATIVO!");
+      } else {
         erro("ERRO_DESCONHECIDO");
       }
-      erro(mensagem);
     },
     error: function (result) {
+      if(result.responseText.split(" ")[0] == "ValueError"){
+        mensagem = "VERIFIQUE AS INFORMAÇÕES! - "+result.responseText.split(" ")[0]
+      }else{
+        mensagem =  result.responseText.split(" ")[0]
+      }
+      console.log(result)
       erro("ERRO: "+mensagem);
     },
   });
@@ -48,3 +53,5 @@ $("#modal_adicionar_produto").on("hidden.bs.modal", function () {
   $("#form_adicionar_produto").trigger("reset");
   location.reload();
 });
+
+

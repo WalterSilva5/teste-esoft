@@ -12,5 +12,9 @@ urlpatterns = [
     url(r'^home/$', home, name="home"),
     url(r'^produtos/$', produtos, name="produtos"),
     url(r'^produtos/cadastrar_produto$', cadastrar_produto, name="cadastrar_produto"),
+    url(r'^produtos/dados_do_produto$', dados_do_produto, name="dados_do_produto"),
     url(r'^produtos/produto_cadastrado$', produto_cadastrado, name="produto_cadastrado"),
+    url(r'^produtos/excluir_produto$', excluir_produto, name="excluir_produto"),
+    url(r'^produtos/atualizar_produto$', atualizar_produto, name="atualizar_produto"),
+
 ]
