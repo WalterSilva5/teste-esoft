@@ -17,4 +17,11 @@ def efetuar_login(request):
     elif verifica =="senha":
         return render(request, "login.html", {"mensagem": "ERRO: SENHA INCORRETA!"})
     else:
+        request.session["email"] = request.POST["email"]
         return render(request, "home.html")
+def sair(request):
+    try:
+        request.session.flush()
+    except Exception:
+        pass
+    return render(request, "index.html")

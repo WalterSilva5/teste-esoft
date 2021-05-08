@@ -1,0 +1,17 @@
+{% extends "main_logado.html" %} {% load static %}{% block content %}
+
+<h1 class="text-center h1 font-weight-bold mt-4">HOME</h1>
+
+<div id="opções_home" class="justify-content-center text-center col-1 float-left pr-4">
+    <div class=" col-12 float-left">
+        <div class="btn btn-lg btn-dark rounded text-light row mt-3" style="width:120px;">
+            <h6>CADASTRAR</h6>
+        </div>
+        <br>
+    </div>
+</div>
+<div id="dashboard_home" class="col-10 border border-secondary float-left rounded ml-4" style="min-height:400px;">
+
+</div>
+<script src="{% static 'app/js/index.js' %}"></script>
+{% endblock content %}

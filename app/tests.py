@@ -13,3 +13,15 @@ class UsuarioTest():
             return "senha"
         else:
             return "ok"
+
+class ManipulaSession():
+    def verifica_logado(self, request):
+        try:
+            email = request.session["email"]
+            if request.session["email"] == "" or request.session["email"] == None:
+                return False
+            else:
+                return True
+        except:
+
+            return False

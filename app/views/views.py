@@ -5,3 +5,4 @@ from .index import *
 from .login import *
 from .cadastrar import *
 from .home import *
+from .produtos import *
