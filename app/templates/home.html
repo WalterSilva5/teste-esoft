@@ -23,8 +23,15 @@
         </a>
     </div>
 </div>
-<div id="dashboard_home" class="col-10 border border-secondary float-left rounded ml-4" style="min-height:400px;">
-
+<div class="row text-center d-flex justify-content-center">
+    <div id="dashboard_home" class="col-9 border border-secondary float-left rounded ml-4" style="min-height:400px;">
+        <div class="row text-center d-flex justify-content-center">
+            <div>
+                <h1 class="h1">QUANTIDADE DE PRODUTOS CADASTRADOS</h1>
+                <h1 style="font-size:300px">{{quantidade}}35</h1>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="{% static 'app/js/index.js' %}"></script>
 {% endblock content %}
