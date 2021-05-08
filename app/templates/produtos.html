@@ -20,7 +20,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">CADASTRAR PRODUTO</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button id="fechar_cadastro_de_produto" type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -49,12 +49,12 @@
                     <h3>PRODUTO CADASTRADO COM SUCESSO</h3>
                 </div>
                 <div id="produto_cadastro_nao_efetuado" class="alert alert-danger col-12 d-none" role="alert">
-                    <h3>PRODUTO JA ESTA CADASTRADO</h3>
+                    <h3>PRODUTO JÁ ESTA CADASTRADO</h3>
                 </div>
                 <button class="btn btn-dark btn-lg font-weight-bold" onclick="cadastrar_produto()">CADASTRAR</button>
-                <button type="button" class="btn btn-danger btn-lg float-right font-weight-bold text-dark"
+                <button type="button" id="fechar_cadastro_de_produto" class="btn btn-danger btn-lg float-right font-weight-bold text-dark"
                     data-dismiss="modal" aria-label="Close">
-                    CANCELAR
+                    FECHAR
                 </button>
                 <!-- fim form adicionar produto -->
             </div>

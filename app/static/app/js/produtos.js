@@ -19,3 +19,7 @@ function cadastrar_produto() {
     }
   });
 }
+
+$("#fechar_cadastro_de_produto").on('click', function(){
+  $('input').val("");
+});
