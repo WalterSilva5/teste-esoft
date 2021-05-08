@@ -11,7 +11,7 @@ function cadastrar_produto() {
       preco: preco,
     },
     success: function (result) {
-      console.log(result);
+  
       if (result == "OK") {
         sucesso();
       } else if (result == "PRODUTO_JA_CADASTRADO") {

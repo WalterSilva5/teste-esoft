@@ -41,7 +41,6 @@ def excluir_produto(request):
 
 @csrf_exempt
 def atualizar_produto(request):
-    print(request.POST.values())
     nome = request.POST["nome"].upper()
     estoque = float(request.POST["estoque"])
     preco = float(request.POST["preco"])
@@ -49,7 +48,6 @@ def atualizar_produto(request):
     
     atual = list(Produto.objects.filter(id=id).values())[0]
     existe_nome = Produto.objects.filter(nome=nome)
-    print(atual)
     if estoque < 0:
             return HttpResponse("ESTOQUE_NEGATIVO")
     elif preco < 0:
@@ -57,6 +55,9 @@ def atualizar_produto(request):
     elif nome != atual["nome"]:
         if existe_nome:
             return HttpResponse("NOME_JA_CADASTRADO")
+        else:
+            Produto.objects.filter(id=id).update(nome=nome, preco=preco, estoque=estoque)
+            return HttpResponse("OK")
     else:
         Produto.objects.filter(id=id).update(nome=nome, preco=preco, estoque=estoque)
         return HttpResponse("OK")
