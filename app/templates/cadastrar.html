@@ -2,12 +2,12 @@
 <div class="row d-flex justify-content-center">
     <div id="cadastro" class="container col-6 border border-secondary mt-4 rounded hvr-grow shadow-lg p-3 bg-info"
         style="min-height: 400px;">
-        <form autocomplete="off" method="post" action="{% url 'efetuar_cadastro' %}">
+        <form class="font-weight-bold" id="form_cadastrar_usuario" method="POST" autocomplete="off">
             {% csrf_token %}
             <div class=" text-center ">
                 <h2 class=" h2 text-dark font-weight-bold ">CADASTRE-SE</h2>
                 <input name="nome" class=" form-control font-weight-bold mt-2 text-center " type="
-            text " placeholder=" NOME " autofocus required>
+                text " placeholder=" NOME " autofocus required>
                 <input name="email" class=" form-control font-weight-bold mt-2 text-center " type="email"
                     placeholder=" E-MAIL " required>
                 <div class=" d-flex justify-content-center ">
@@ -40,20 +40,27 @@
                     <input name="uf" class=" form-control font-weight-bold mt-2 text-center col-4 float-left "
                         type=" text " placeholder=" ESTADO " required>
                 </div>
-                <br>
-                <input type="submit" class=" btn btn-dark btn-lg mt-3 " name="btn_submit" value="CADASTRAR">
-                <div id=" msg ">
-                    {% autoescape off %}
-                    {{ mensagem }}
-                    {% endautoescape %}
-                </div>
-                <div class="container mt-5 col-6">
-                    <strong class="float-left mr-2">Ja possui cadastro?</strong>
-                    <a href="{% url 'login' %}" class="btn btn-warning font-weight-bold">FAÇA LOGIN</a>
-                </div>
-        </form>
-    </div>
-</div>
 
-<script src=" {% static 'app/js/cadastrar.js' %} "></script>
-{% endblock content %}
+                <br>
+            </div>
+        </form>
+        <div class="text-center">
+            <button class=" btn btn-dark btn-lg mt-3 " onclick="cadastrar_usuario()">CADASTRAR</button>
+        </div>
+        <div id="erro_cadastro" class="bg-danger col-12 rounded d-none">
+            <h3 id="mensagem_erro_cadastro" class="text-center"></h3>
+        </div>
+        <div id="cadastro_efetuado" class="bg-success col-12 rounded d-none">
+            <h3 class="font-weight-bold text-center rounded  h2">CADASTRO EFETUADO COM SUCESSO!</h3>
+        </div>
+        <div class="container mt-1 col-6">
+            <strong class="float-left mr-2 ">Ja possui cadastro?</strong>
+            <a href="{% url 'login' %}" class="btn btn-warning font-weight-bold">FAÇA LOGIN</a>
+        </div>
+    </div>
+
+
+    <script src=" {% static 'app/js/cadastrar/cadastrar.js' %} "></script>
+    <script src=" {% static 'app/js/cadastrar/busca_cep.js' %} "></script>
+
+    {% endblock content %}

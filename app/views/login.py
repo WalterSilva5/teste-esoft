@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from app.models import Usuario
 from app.tests import UsuarioTest
+from app.models import Produto
 
 usuario_test = UsuarioTest()
 def login(request):
@@ -18,7 +19,8 @@ def efetuar_login(request):
         return render(request, "login.html", {"mensagem": "ERRO: SENHA INCORRETA!"})
     else:
         request.session["email"] = request.POST["email"]
-        return render(request, "home.html")
+        produtos = Produto.objects.all().count()
+        return render(request, 'home.html',{"quantidade": produtos})
 def sair(request):
     try:
         request.session.flush()

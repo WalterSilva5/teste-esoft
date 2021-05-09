@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^login/sair$', sair, name="sair"),
     url(r'^cadastrar/$', cadastrar, name="cadastrar"),
     url(r'^cadastrar/efetuar_cadastro$', efetuar_cadastro, name="efetuar_cadastro"),
+    url(r'^cadastrar/verifica_usuario_cadastrado$', verifica_usuario_cadastrado, name="verifica_usuario_cadastrado"),
     url(r'^home/$', home, name="home"),
     url(r'^produtos/$', produtos, name="produtos"),
     url(r'^produtos/cadastrar_produto$', cadastrar_produto, name="cadastrar_produto"),
