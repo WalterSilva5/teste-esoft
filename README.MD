@@ -1,4 +1,5 @@
 TESTE PRÁTICO E-SOFT SISTEMAS - PYTHON TRAINEE
+<pre>
 
 Ferramentas utilizadas:
     python 2.7.18
@@ -33,3 +34,4 @@ execute os comandos:
     python manage.py runserver
 
 acesse o sistema pelo navegador no link: http://localhost:8000
+</pre>
