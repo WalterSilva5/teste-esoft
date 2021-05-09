@@ -25,11 +25,11 @@ o arquivo sqlcode.txt contem os scripts utilizados para criar as tabelas
 <hr>
 <h4>Como executar o programa?</h4>
 é necessario ter o python2.7 instalado
-voce pode obtelo em: https://www.python.org/downloads/release/python-2718/
+voce pode obtelo em: [[text](https://www.python.org/downloads/release/python-2718/)]([https://link](https://www.python.org/downloads/release/python-2718/))
 após instalado, entre na pasta raiz do projeto
 execute os comandos:
     pip install -r requirements.txt
     python manage.py runserver
 
-acesse o sistema pelo navegador no link: http://localhost:8000
+acesse o sistema pelo navegador no link: [[text](http://localhost:8000)](http://localhost:8000)
 </pre>

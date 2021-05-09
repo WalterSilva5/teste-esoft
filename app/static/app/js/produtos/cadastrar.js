@@ -2,6 +2,11 @@ function cadastrar_produto() {
   let nome = $(`input[name='nome']`).val();
   let estoque = $(`input[name='estoque']`).val();
   let preco = $(`input[name='preco']`).val();
+
+  console.log(estoque);
+  console.log(preco);
+  // let estoque = parseFloat($(`input[name='estoque']`).val());
+  // let preco = parseFloat($(`input[name='preco']`).val());
   $.ajax({
     type: "post",
     url: "http://localhost:8000/produtos/cadastrar_produto",
@@ -11,7 +16,7 @@ function cadastrar_produto() {
       preco: preco,
     },
     success: function (result) {
-  
+      console.log(result);
       if (result == "OK") {
         sucesso();
       } else if (result == "PRODUTO_JA_CADASTRADO") {
@@ -27,7 +32,8 @@ function cadastrar_produto() {
       }
     },
     error: function (result) {
-      if(result.responseText.split(" ")[0] == "ValueError"){
+      msg=result.responseText.split(" ")[0];
+      if(msg=="ValueError"){
         mensagem = "VERIFIQUE AS INFORMAÇÕES! - "+result.responseText.split(" ")[0]
       }else{
         mensagem =  result.responseText.split(" ")[0]
@@ -36,22 +42,21 @@ function cadastrar_produto() {
       erro("ERRO: "+mensagem);
     },
   });
+  function sucesso() {
+    $("#produto_cadastro_efetuado").removeClass("d-none");
+    $("#produto_cadastro_nao_efetuado").addClass("d-none");
+    $("input").val("");
+  }
+  function erro(mensagem) {
+    $("#produto_cadastro_efetuado").addClass("d-none");
+    $("#produto_cadastro_nao_efetuado").removeClass("d-none");
+    $("#mensagem_erro").text(mensagem);
+  }
+  $("#modal_adicionar_produto").on("hidden.bs.modal", function () {
+    $("#produto_cadastro_nao_efetuado").addClass("d-none");
+    $("#form_adicionar_produto").trigger("reset");
+    location.reload();
+  });
 }
-function sucesso() {
-  $("#produto_cadastro_efetuado").removeClass("d-none");
-  $("#produto_cadastro_nao_efetuado").addClass("d-none");
-  $("input").val("");
-}
-function erro(mensagem) {
-  $("#produto_cadastro_efetuado").addClass("d-none");
-  $("#produto_cadastro_nao_efetuado").removeClass("d-none");
-  $("#mensagem_erro").text(mensagem);
-}
-$("#modal_adicionar_produto").on("hidden.bs.modal", function () {
-  $("#produto_cadastro_nao_efetuado").removeClass("d-none");
-  $("#produto_cadastro_nao_efetuado").addClass("d-none");
-  $("#form_adicionar_produto").trigger("reset");
-  location.reload();
-});
 
 
